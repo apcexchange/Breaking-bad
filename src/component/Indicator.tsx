@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 const Indicator = () => {
   return (
     <View style={{ flex: 1 }}>
-      <ActivityIndicator size="large" color="#red" />
+      <ActivityIndicator size="large" color="red" />
     </View>
   );
 };

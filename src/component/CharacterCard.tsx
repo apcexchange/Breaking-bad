@@ -30,6 +30,7 @@ const CharacterCard = ({
   appearance,
   status,
   charId,
+  children
 }: CharacterCardProps) => {
   return (
     <ScrollView>
@@ -55,6 +56,7 @@ const CharacterCard = ({
             </Text>
             <Text style={styles.appearance}> Appearances</Text>
             <ScrollView horizontal>
+                {children}
               <Text style={styles.appearanceItems}> 1,</Text>
               <Text style={styles.appearanceItems}> 2</Text>
             </ScrollView>

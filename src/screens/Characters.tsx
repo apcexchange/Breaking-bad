@@ -28,14 +28,21 @@ const CharacterScreen = () => {
   const [limit, setLimit] = useState(12);
   const [characters, setCharacters] = useState([]);
 
-  var nextPage = 12
   
 
 
-  useEffect(() => checkLimit(), [limit]);
+  useEffect(() => fetchCharacters(), [limit]);
 
   const loadMore = () => {
-    setLimit(limit + nextPage)
+      console.log("lenght   ",characters.length)
+      if(characters.length < 48){
+    setLimit(limit + 12)
+}
+
+if (characters.length == 48){
+    setLimit(characters.length + 2)
+}
+      
   };
 
   const renderLoader = () => {
@@ -53,6 +60,7 @@ const CharacterScreen = () => {
         setCharacters(result);
         setIsLoading(false);
         console.log(result[0]);
+        console.log("result lenght",result.length);
       })
       .catch((error) => {
         console.log(error);
@@ -79,6 +87,7 @@ const CharacterScreen = () => {
           keyExtractor={(item, index) => "key" + index}
           renderItem={(item: { [key: string]: any }) => {
             return (
+                
               <CharacterCard
                 name={item.item.name}
 
@@ -87,12 +96,13 @@ const CharacterScreen = () => {
                 charId={item.item.char_id}
                 birthday={item.item.birthday}
                 img={item.item.img}
-                occupation={item.item.occupation}
-                appearance={item.item.appearance}
+                occupation={item.item.occupation[0]}
+                appearance={item.item.appearance[0]}
               />
+
             );
           }}
-          ListFooterComponent={Indicator}
+          ListFooterComponent={characters.length < 50 ? Indicator : <Text style={{textAlign: 'center'}}> The End</Text>}
           onEndReached={loadMore}
           onEndReachedThreshold={0}
         />
