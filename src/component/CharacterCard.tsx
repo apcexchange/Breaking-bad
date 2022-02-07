@@ -30,7 +30,7 @@ const CharacterCard = ({
   appearance,
   status,
   charId,
-  children
+  
 }: CharacterCardProps) => {
   return (
     <ScrollView>
@@ -51,14 +51,16 @@ const CharacterCard = ({
             <Text style={styles.status}>Status : {status} </Text>
             <Text style={styles.status}>CharId : {charId} </Text>
             <Text style={styles.occupations}>occupations</Text>
-            <Text style={styles.occupationItems}>
-              High School Chemistry Teacher
-            </Text>
-            <Text style={styles.appearance}> Appearances</Text>
+            <Text style={styles.occupations}> {occupation.map((item,i) => {
+         return(<Text key ={i}> {item}</Text>)
+      })}</Text>
+           
+            <Text style={styles.appearance}> Appearances </Text>
             <ScrollView horizontal>
-                {children}
-              <Text style={styles.appearanceItems}> 1,</Text>
-              <Text style={styles.appearanceItems}> 2</Text>
+               
+              <Text style={styles.appearanceItems}> {appearance.map((item,i) => {
+         return(<Text key ={i}> {item}</Text>)
+      })}</Text>
             </ScrollView>
           </View>
         </View>

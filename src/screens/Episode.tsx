@@ -75,11 +75,17 @@ const CharacterScreen = () => {
           keyExtractor={(item, index) => "key" + index}
           renderItem={(item: { [key: string]: any }) => {
             return (
-              <EpisodeCard air_date={item.item.air_date} characters={
-                  item.item.characters.map(char => {
-                      <Text>{char}</Text>
-                  })
-              } episode={item.item.episode} season={item.item.season} series={item.item.series} title={item.item.title} episode_id={item.item.episode} />
+              <EpisodeCard 
+              characters={item.item.characters}
+              
+             air_date={item.item.air_date} 
+             episode={item.item.episode} 
+              season={item.item.season}
+               series={item.item.series} 
+               title={item.item.title} 
+               episode_id={item.item.episode}
+              
+                />
             );
           }}
           ListFooterComponent={Indicator}

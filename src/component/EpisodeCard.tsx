@@ -19,7 +19,9 @@ const EpisodeCard = ({
     <View style={styles.container}>
       <Text>title: {title}</Text>
       <Text>Air Date: {air_date}</Text>
-      <Text>Characters: {characters}</Text>
+      <Text>Characters: {characters.map((item,i) => {
+         return(<Text key ={i}> {item}</Text>)
+      })}</Text>
       <Text>episode: {episode}</Text>
       <Text>episode_id: {episode_id}</Text>
       <Text>season: {season}</Text>
@@ -32,7 +34,8 @@ export default EpisodeCard;
 
 const styles = StyleSheet.create({
   container: {
-      marginVertical:15
+      marginVertical:15,
+      marginHorizontal: 10
   }
 });
 

@@ -26,6 +26,7 @@ interface CharacterScreenProps {
 const CharacterScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [limit, setLimit] = useState(12);
+  const [offset, setOffset] = useState(0)
   const [characters, setCharacters] = useState([]);
 
   
@@ -39,7 +40,7 @@ const CharacterScreen = () => {
     setLimit(limit + 12)
 }
 
-if (characters.length == 48){
+if (characters.length === 48){
     setLimit(characters.length + 2)
 }
       
@@ -96,8 +97,8 @@ if (characters.length == 48){
                 charId={item.item.char_id}
                 birthday={item.item.birthday}
                 img={item.item.img}
-                occupation={item.item.occupation[0]}
-                appearance={item.item.appearance[0]}
+                occupation={item.item.occupation}
+                appearance={item.item.appearance}
               />
 
             );
