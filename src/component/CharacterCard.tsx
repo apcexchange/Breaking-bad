@@ -51,7 +51,7 @@ const CharacterCard = ({
             <Text style={styles.status}>Status : {status} </Text>
             <Text style={styles.status}>CharId : {charId} </Text>
             <Text style={styles.occupations}>occupations</Text>
-            <Text style={styles.occupations}> {occupation.map((item,i) => {
+            <Text style={styles.occupationItems}> {occupation.map((item,i) => {
          return(<Text key ={i}> {item}</Text>)
       })}</Text>
            
@@ -129,4 +129,5 @@ const styles = StyleSheet.create({
   appearanceItems: {
     fontSize: 16,
   },
+  
 });
