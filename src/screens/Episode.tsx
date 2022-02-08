@@ -1,16 +1,11 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
-  Text,
   View,
   StyleSheet,
-  Image,
   ActivityIndicator,
   FlatList,
 } from "react-native";
-import CharacterCard from "../component/CharacterCard";
 import EpisodeCard from "../component/EpisodeCard";
-import Indicator from "../component/Indicator";
 import AxiosInstance from "../network/AxiosInstance";
 
 

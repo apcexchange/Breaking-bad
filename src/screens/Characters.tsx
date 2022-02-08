@@ -1,10 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
   StyleSheet,
-  Image,
   ActivityIndicator,
   FlatList,
 } from "react-native";
@@ -12,16 +10,6 @@ import CharacterCard from "../component/CharacterCard";
 import Indicator from "../component/Indicator";
 import AxiosInstance from "../network/AxiosInstance";
 
-interface CharacterScreenProps {
-  name: string;
-  nickname: string;
-  birthday: string;
-  occupation: [];
-  img: string;
-  appearance: [];
-  status: string;
-  charId:number;
-}
 
 const CharacterScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
