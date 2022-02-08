@@ -26,7 +26,6 @@ interface CharacterScreenProps {
 const CharacterScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [limit, setLimit] = useState(12);
-  const [offset, setOffset] = useState(0)
   const [characters, setCharacters] = useState([]);
 
   
@@ -35,7 +34,6 @@ const CharacterScreen = () => {
   useEffect(() => fetchCharacters(), [limit]);
 
   const loadMore = () => {
-      console.log("lenght   ",characters.length)
       if(characters.length < 48){
     setLimit(limit + 12)
 }
@@ -60,8 +58,6 @@ if (characters.length === 48){
         const result = response.data;
         setCharacters(result);
         setIsLoading(false);
-        console.log(result[0]);
-        console.log("result lenght",result.length);
       })
       .catch((error) => {
         console.log(error);
@@ -72,11 +68,7 @@ if (characters.length === 48){
     return null;
   }
 
-  const checkLimit = () => {
-    if (characters.length <= 50){
-        fetchCharacters()
-    }
-}
+
 
   return (
     <View style={styles.container}>
@@ -91,7 +83,6 @@ if (characters.length === 48){
                 
               <CharacterCard
                 name={item.item.name}
-
                 nickname={item.item.nickname}
                 status={item.item.status}
                 charId={item.item.char_id}
